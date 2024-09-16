@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encryption Visualizer</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Import Crypto-JS for AES and DES encryption -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <!-- Import JSEncrypt for RSA encryption from a reliable CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0/jsencrypt.min.js"></script>
+    <script src="encryption_visualizer.js" defer></script>
+
+    <!-- Mermaid JS for flowcharts -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+    <style>
+        .flowchart-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Encryption Visualizer</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="tools.html">Tools</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="encryption_section">
+            <h2>Input your text and select an encryption method</h2>
+            
+            <div class="input-group">
+                <label for="plaintext">Enter Plaintext:</label>
+                <textarea id="plaintext" rows="4" cols="50" placeholder="Enter text to encrypt..."></textarea>
+            </div>
+            
+            <div class="input-group">
+                <label for="algorithm">Select Algorithm:</label>
+                <select id="algorithm">
+                    <option value="" disabled selected>Select one algorithm</option>
+                    <option value="caesar">Caesar Cipher</option>
+                    <option value="aes">AES</option>
+                    <option value="des">DES</option>
+                    <option value="rsa">RSA</option>
+                </select>
+            </div>
+
+            <div class="input-group" id="caesarShift">
+                <label for="shift">Shift (Caesar Cipher):</label>
+                <input type="number" id="shift" value="" min="1" max="25">
+            </div>
+
+            <div class="input-group" id="encryptionKey">
+                <label for="key">Encryption Key:</label>
+                <input type="text" id="key" placeholder="Enter encryption key">
+            </div>
+
+            <button id="encryptBtn">Encrypt</button>
+            
+            <h3>Encrypted Result:</h3>
+            <div id="encryptedOutput" class="output-box"></div>
+
+            <h3>How Encryption Works:</h3>
+            <p>Encryption converts plaintext into ciphertext using an algorithm and a key. In this tool, we explore AES, DES, and RSA encryption techniques.</p>
+
+            <!-- Flowchart Containers -->
+            <div id="caesarFlowchart" class="flowchart-container">
+                <h4>Caesar Cipher Flowchart</h4>
+                <div class="mermaid">
+                    graph TD;
+                        A[Plaintext] --> B[Shift Characters];
+                        B --> C[Generate Ciphertext];
+                </div>
+            </div>
+
+            <div id="aesFlowchart" class="flowchart-container">
+                <h4>AES Flowchart</h4>
+                <div class="mermaid">
+                    graph TD;
+                        A[Plaintext] --> B[Generate 128/192/256-bit Key];
+                        B --> C[Divide Plaintext into Blocks];
+                        C --> D[Apply Key to Each Block];
+                        D --> E[Generate Ciphertext];
+                </div>
+            </div>
+
+            <div id="desFlowchart" class="flowchart-container">
+                <h4>DES Flowchart</h4>
+                <div class="mermaid">
+                    graph TD;
+                        A[Plaintext] --> B[Generate 56-bit Key];
+                        B --> C[Divide Plaintext into 64-bit Blocks];
+                        C --> D[Apply 16 Rounds of Substitution and Permutation];
+                        D --> E[Generate Ciphertext];
+                </div>
+            </div>
+
+            <div id="rsaFlowchart" class="flowchart-container">
+                <h4>RSA Flowchart</h4>
+                <div class="mermaid">
+                    graph TD;
+                        A[Plaintext] --> B[Generate Public and Private Keys];
+                        B --> C[Encrypt Plaintext with Public Key];
+                        C --> D[Generate Ciphertext];
+                        D --> E[Decrypt Ciphertext with Private Key];
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Cybersecurity Awareness Platform</p>
+    </footer>
+</body>
+</html>
