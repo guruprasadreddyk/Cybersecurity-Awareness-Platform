@@ -1,0 +1,132 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    background-color: #0077cc;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Navigation Bar */
+nav ul {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 15px;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0077cc;
+}
+
+/* Main Content */
+main {
+    padding: 50px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0077cc;
+}
+
+/* Tool Cards Layout */
+#tools-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#tools-list .tool {
+    width: 300px;
+    background-color: #fff;
+    padding: 30px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+/* Hover Effects */
+#tools-list .tool:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Tool Titles */
+#tools-list .tool h3 {
+    font-size: 1.5em;
+    color: #0077cc;
+    margin-bottom: 10px;
+}
+
+#tools-list .tool p {
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+/* Tool Links */
+#tools-list .tool a {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+#tools-list .tool a:hover {
+    border-color: #005bb5;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
